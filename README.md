@@ -8,6 +8,7 @@ This is a test project to understand Dependancy Injection frameworks like NInjec
 - [ ] Classes with multiple constructors ( only try to resolve most complex constructor )
 - [ ] Classes without constructor
 - [ ] Circular reference detection
+- [ ] Only use 1 instance of a resolved type on the same thread
 
 ### DI.Map...
 - [x] DI.Map<TRequested, TActual>()
