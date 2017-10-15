@@ -15,3 +15,7 @@ This is a test project to understand Dependancy Injection frameworks like NInjec
 - [ ] DI.Map<TRequested>(TActual () => { return T})
 - [ ] DI.AsConstant().Map<,>()
 - [ ] DI.PerRequest().Map<,>()
+
+
+## Interesting read
+https://stackoverflow.com/questions/752/get-a-new-object-instance-from-a-type
