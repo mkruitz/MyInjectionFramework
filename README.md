@@ -5,6 +5,7 @@ This is a test project to understand Dependancy Injection frameworks like NInjec
 ## TODO
 ### DI.Get<T>()
 - [x] Simple structures
+- [ ] Classes with generics
 - [ ] Classes with multiple constructors ( only try to resolve most complex constructor )
 - [ ] Classes without constructor
 - [ ] Circular reference detection
