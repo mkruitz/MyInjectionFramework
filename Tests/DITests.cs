@@ -6,12 +6,14 @@ namespace Tests
     [TestFixture]
     public class DITests
     {
-        private DIGetter DI;
+        private DIMapper Mapper { get; set; }
+        private DIGetter DI { get; set; }
 
         [SetUp]
         public void SetUp()
         {
-            DI = new DIGetter();
+            Mapper = new DIMapper();
+            DI = new DIGetter(Mapper);
         }
 
         [Test]
@@ -32,7 +34,7 @@ namespace Tests
         [Test]
         public void SimpleInterfaceOfClass_AddedMapping_GetInstance_ReturnsInstance()
         {
-            DI.Map<ISimpleClass, SimpleClass>();
+            Mapper.Map<ISimpleClass, SimpleClass>();
 
             var dummy = DI.Get<ISimpleClass>();
 
@@ -42,7 +44,7 @@ namespace Tests
         [Test]
         public void ChildOfSimpleClass_AddedMapping_GetInstance_ChildOfSimpleClass()
         {
-            DI.Map<SimpleClass, ChildOfSimpleClass>();
+            Mapper.Map<SimpleClass, ChildOfSimpleClass>();
 
             var dummy = DI.Get<SimpleClass>();
 
@@ -52,9 +54,9 @@ namespace Tests
         [Test]
         public void SimpleInterfaceOfClass_DoubleMapping_Throws()
         {
-            DI.Map<ISimpleClass, SimpleClass>();
+            Mapper.Map<ISimpleClass, SimpleClass>();
 
-            var ex = Assert.Throws<DoubleMappingException>(() => DI.Map<ISimpleClass, ChildOfSimpleClass>());
+            var ex = Assert.Throws<DoubleMappingException>(() => Mapper.Map<ISimpleClass, ChildOfSimpleClass>());
             Assert.AreEqual(typeof(ISimpleClass), ex.TRequested);
         }
 
@@ -69,7 +71,7 @@ namespace Tests
         [Test]
         public void DependantClass_AddedMapping_GetInstance_ReturnsInstance()
         {
-            DI.Map<ISimpleClass, SimpleClass>();
+            Mapper.Map<ISimpleClass, SimpleClass>();
 
             var dummy =  DI.Get<DependantClass>();
 

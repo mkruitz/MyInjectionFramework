@@ -1,23 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Reflection;
 
 namespace Core
 {
     public class DIGetter
     {
-        private readonly Dictionary<Type, Type> mappings = new Dictionary<Type, Type>();
+        private readonly DIMapper _mapper;
 
-        public void Map<TRequested, TActual>()
+        public DIGetter(DIMapper mapper)
         {
-            var tRequested = typeof(TRequested);
-
-            if (mappings.ContainsKey(tRequested))
-            {
-                throw new DoubleMappingException(tRequested);
-            }
-
-            mappings.Add(tRequested, typeof(TActual));
+            _mapper = mapper;
         }
 
         public T Get<T>() where T : class
@@ -27,7 +19,7 @@ namespace Core
 
         private object Get(Type tRequested)
         {
-            var t = MapType(tRequested);
+            var t = _mapper.MapType(tRequested);
 
             if (t == null)
             {
@@ -35,18 +27,6 @@ namespace Core
             }
 
             return CreateInstance(t);
-        }
-
-        private Type MapType(Type t)
-        {
-            if (mappings.ContainsKey(t))
-            {
-                return mappings[t];
-            }
-
-            return t.IsInterface
-                ? null
-                : t;
         }
 
         private object CreateInstance(Type tCreating)
@@ -58,7 +38,7 @@ namespace Core
             foreach (var parameter in constructorInfo.GetParameters())
             {
                 var tRequested = parameter.ParameterType;
-                var t = MapType(tRequested);
+                var t = _mapper.MapType(tRequested);
                 if (t == null)
                 {
                     throw new MissingDependancyException(tCreating, tRequested);
