@@ -5,6 +5,7 @@ This is a test project to understand Dependancy Injection frameworks like NInjec
 ## TODO
 ### DI.Get<T>()
 - [x] Simple structures
+- [ ] Classes with generics
 - [ ] Classes with multiple constructors ( only try to resolve most complex constructor )
 - [ ] Classes without constructor
 - [ ] Circular reference detection
@@ -15,3 +16,11 @@ This is a test project to understand Dependancy Injection frameworks like NInjec
 - [ ] DI.Map<TRequested>(TActual () => { return T})
 - [ ] DI.AsConstant().Map<,>()
 - [ ] DI.PerRequest().Map<,>()
+
+
+## Interesting read
+- Generics
+  * https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/generics/generics-and-reflection
+- Reflection 
+  * https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/reflection
+  * https://stackoverflow.com/questions/752/get-a-new-object-instance-from-a-type
