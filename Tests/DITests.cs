@@ -65,5 +65,16 @@ namespace Tests
             Assert.AreEqual(typeof(DependantClass), ex.TCreating);
             Assert.AreEqual(typeof(ISimpleClass), ex.TMissing);
         }
+
+        [Test]
+        public void DependantClass_AddedMapping_GetInstance_ReturnsInstance()
+        {
+            DI.Map<ISimpleClass, SimpleClass>();
+
+            var dummy =  DI.Get<DependantClass>();
+
+            Assert.AreEqual(typeof(DependantClass), dummy.GetType());
+            Assert.AreEqual(0, dummy.GetInjectedValue());
+        }
     }
 }

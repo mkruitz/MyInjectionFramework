@@ -64,7 +64,7 @@ namespace Core
                     throw new MissingDependancyException(tCreating, tRequested);
                 }
 
-                args.Add(t);
+                args.Add(CreateInstance(t));
             }
 
             return constructorInfo.Invoke(args.ToArray());
