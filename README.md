@@ -15,7 +15,8 @@ This is a test project to understand Dependancy Injection frameworks like NInjec
 - [x] DI.Map<TRequested, TActual>()
 - [ ] DI.Map<TRequested>(TActual () => { return T})
 - [x] DI.AsConstant().Map<,>()
-- [x] DI.UseOnce().Map<,>()
+- [ ] DI.AsPerThread().Map<,>()
+- [x] DI.AsUseOnce().Map<,>()
 
 
 ## Interesting read
