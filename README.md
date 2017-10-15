@@ -18,4 +18,8 @@ This is a test project to understand Dependancy Injection frameworks like NInjec
 
 
 ## Interesting read
-https://stackoverflow.com/questions/752/get-a-new-object-instance-from-a-type
+- Generics
+  * https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/generics/generics-and-reflection
+- Reflection 
+  * https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/reflection
+  * https://stackoverflow.com/questions/752/get-a-new-object-instance-from-a-type
