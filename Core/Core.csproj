@@ -44,6 +44,8 @@
     <Compile Include="DIMapper.cs" />
     <Compile Include="Exceptions.cs" />
     <Compile Include="DIGetter.cs" />
+    <Compile Include="Mapping\UseOnceMapper.cs" />
+    <Compile Include="Mapping\IMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

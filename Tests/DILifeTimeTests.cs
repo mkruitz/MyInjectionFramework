@@ -24,5 +24,16 @@ namespace Tests
 
             Assert.AreEqual(dummy1, dummy2);
         }
+
+        [Test]
+        public void SameClass_AsUseOnce_GetTwice_ReturnsDifferentInstance()
+        {
+            Mapper.AsUseOnce().Map<SimpleClass, SimpleClass>();
+
+            var dummy1 = DI.Get<SimpleClass>();
+            var dummy2 = DI.Get<SimpleClass>();
+
+            Assert.AreNotEqual(dummy1, dummy2);
+        }
     }
 }

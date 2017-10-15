@@ -6,14 +6,15 @@ namespace Tests
     [TestFixture]
     public class DITests
     {
-        private DIMapper Mapper { get; set; }
+        private IMapper Mapper { get; set; }
         private DIGetter DI { get; set; }
 
         [SetUp]
         public void SetUp()
         {
-            Mapper = new DIMapper();
-            DI = new DIGetter(Mapper);
+            var diMapper = new DIMapper();
+            Mapper = diMapper.AsUseOnce();
+            DI = new DIGetter(diMapper);
         }
 
         [Test]

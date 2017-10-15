@@ -20,14 +20,14 @@ namespace Core
 
         private object Get(Type tRequested)
         {
-            var t = _mapper.MapType(tRequested);
+            var instance = _mapper.GetOrCreate(tRequested, CreateInstance);
 
-            if (t == null)
+            if (instance == null)
             {
                 throw new MissingMappingException(tRequested);
             }
 
-            return _cache.Get(t, CreateInstance);
+            return instance;
         }
 
         private object CreateInstance(Type tCreating)
@@ -39,13 +39,13 @@ namespace Core
             foreach (var parameter in constructorInfo.GetParameters())
             {
                 var tRequested = parameter.ParameterType;
-                var t = _mapper.MapType(tRequested);
-                if (t == null)
+                var instance = _mapper.GetOrCreate(tRequested, CreateInstance);
+                if (instance == null)
                 {
                     throw new MissingDependancyException(tCreating, tRequested);
                 }
 
-                args.Add(CreateInstance(t));
+                args.Add(instance);
             }
 
             return constructorInfo.Invoke(args.ToArray());
