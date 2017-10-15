@@ -16,6 +16,11 @@ namespace Core
             return new UseOnceMapper(AddMapping);
         }
 
+        public IMapper AsConstant()
+        {
+            return new AsConstantMapper(AddMapping);
+        }
+
         private void AddMapping(Type tRequested, Func<Func<Type, object>, object> getter)
         {
             if (_mappings.ContainsKey(tRequested))

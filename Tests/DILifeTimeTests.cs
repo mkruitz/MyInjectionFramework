@@ -19,6 +19,8 @@ namespace Tests
         [Test]
         public void SameClass_GetTwice_ReturnsSameInstance()
         {
+            Mapper.AsConstant().Map<SimpleClass, SimpleClass>();
+
             var dummy1 = DI.Get<SimpleClass>();
             var dummy2 = DI.Get<SimpleClass>();
 
