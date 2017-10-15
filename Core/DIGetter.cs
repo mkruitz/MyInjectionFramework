@@ -6,6 +6,7 @@ namespace Core
     public class DIGetter
     {
         private readonly DIMapper _mapper;
+        private readonly DICache _cache = new DICache();
 
         public DIGetter(DIMapper mapper)
         {
@@ -26,7 +27,7 @@ namespace Core
                 throw new MissingMappingException(tRequested);
             }
 
-            return CreateInstance(t);
+            return _cache.Get(t, CreateInstance);
         }
 
         private object CreateInstance(Type tCreating)
