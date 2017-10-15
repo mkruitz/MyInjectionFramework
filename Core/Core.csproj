@@ -40,7 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DICache.cs" />
     <Compile Include="DIMapper.cs" />
     <Compile Include="Exceptions.cs" />
     <Compile Include="DIGetter.cs" />

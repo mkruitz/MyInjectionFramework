@@ -6,7 +6,6 @@ namespace Core
     public class DIGetter
     {
         private readonly DIMapper _mapper;
-        private readonly DICache _cache = new DICache();
 
         public DIGetter(DIMapper mapper)
         {
