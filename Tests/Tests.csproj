@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DIGetterTests.cs" />
     <Compile Include="DILifetimeTests.cs" />
     <Compile Include="DITests.cs" />
     <Compile Include="DummyClasses.cs" />

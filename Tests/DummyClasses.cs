@@ -28,4 +28,14 @@ namespace Tests
             return Dependancy.Value;
         }
     }
+
+    public class GenericClass<T>
+    {
+        public T GenericObject { get; }
+
+        public GenericClass(T genericObject)
+        {
+            GenericObject = genericObject;
+        }
+    }
 }
