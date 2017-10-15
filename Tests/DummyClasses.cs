@@ -16,16 +16,16 @@ namespace Tests
 
     public class DependantClass
     {
-        private readonly ISimpleClass _dependancy;
+        public ISimpleClass Dependancy { get; }
 
         public DependantClass(ISimpleClass dependancy)
         {
-            _dependancy = dependancy;
+            Dependancy = dependancy;
         }
 
         public int GetInjectedValue()
         {
-            return _dependancy.Value;
+            return Dependancy.Value;
         }
     }
 }

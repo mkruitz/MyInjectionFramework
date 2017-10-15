@@ -17,7 +17,7 @@ namespace Tests
         }
 
         [Test]
-        public void SameClass_GetTwice_ReturnsSameInstance()
+        public void SameClass_AsConstant_GetTwice_ReturnsSameInstance()
         {
             Mapper.AsConstant().Map<SimpleClass, SimpleClass>();
 
